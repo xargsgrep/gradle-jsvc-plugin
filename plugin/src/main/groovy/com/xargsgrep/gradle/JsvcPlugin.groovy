@@ -4,14 +4,14 @@ import org.gradle.api.Project
 import org.gradle.api.Plugin
 
 class JsvcPlugin implements Plugin<Project> {
-    void apply(Project project) {
+	void apply(Project project) {
 		//def javaConvention = project.convention.plugins.java
 		//def classpath = (javaConvention == null) ? null : javaConvention.sourceSets.main.runtimeClasspath.asPath
 		project.convention.plugins.jsvc = new JsvcPluginConvention()
 
-        project.task('jsvcRun', type: JsvcRunTask)
-        project.task('jsvcStop', type: JsvcStopTask)
-    }
+		project.task('jsvcRun', type: JsvcRunTask)
+		project.task('jsvcStop', type: JsvcStopTask)
+	}
 }
 
 class JsvcPluginConvention {

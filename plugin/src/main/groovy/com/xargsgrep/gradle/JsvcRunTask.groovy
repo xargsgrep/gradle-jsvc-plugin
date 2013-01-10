@@ -24,8 +24,8 @@ class JsvcRunTask extends DefaultTask {
 		description = 'Runs jsvc with the configured Daemon class'
 	}
 
-    @TaskAction
-    def run() {
+	@TaskAction
+	def run() {
 		def requiredProperties = ['bin', 'classpath', 'daemonClass']
 		requiredProperties.each {
 			if (isBlank(settings[it])) {
@@ -52,7 +52,7 @@ class JsvcRunTask extends DefaultTask {
 
 		println "jsvc command: " +  command
 		command.execute()
-    }
+	}
 
 	def addOptionAndValue(option, value) {
 		command.add(option)

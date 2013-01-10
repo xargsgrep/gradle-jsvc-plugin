@@ -15,8 +15,8 @@ class JsvcStopTask extends DefaultTask {
 		description = 'Stops jsvc using the configured pidfile'
 	}
 
-    @TaskAction
-    def run() {
+	@TaskAction
+	def run() {
 		if (isBlank(settings.pidFile) || settings.pidFile == '/dev/null') {
 			throw new TaskExecutionException(this, new Throwable('jsvc pidfile is undefined'))
 		}
@@ -28,7 +28,7 @@ class JsvcStopTask extends DefaultTask {
 
 		println "jsvc command: " +  command
 		command.execute()
-    }
+	}
 
 	def addOptionAndValue(option, value) {
 		command.add(option)

@@ -20,19 +20,14 @@ dependencies {
 	compile "commons-daemon:commons-daemon:1.0.10"
 }
 
-task foo << {
-	println sourceSets.main.runtimeClasspath.getAsPath()
-}	
-
 jsvc {
-	//systemProperties = ['-Dfoo=foo', '-Dbar=bar']
-	//jvmOptions = ['-Xdebug', '-Xmx=128m']
+	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
+	jvmOptions = ['-Xms64m', '-Xmx64']
 	detach = false
 	classpath = sourceSets.main.runtimeClasspath.getAsPath()
-	//outFile = '&1'
 	outFile = './jsvc.log'
 	errorFile = '&1'
 	pidFile = 'jsvc.pid'
 	daemonClass = 'com.xargsgrep.BackendDaemon'
-	//daemonArgs = ['arg1', 'arg2']
+	daemonArgs = ['arg1', 'arg2']
 }
