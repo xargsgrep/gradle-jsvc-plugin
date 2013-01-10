@@ -1,6 +1,7 @@
 package com.xargsgrep.gradle
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.FileCollection
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.TaskExecutionException
 
@@ -49,6 +50,10 @@ abstract class AbstractJsvcTask extends DefaultTask {
 
 	def isBlank(String str) {
 		return (str == null || str.length() == 0)
+	}
+
+	def isBlank(FileCollection collection) {
+		return (collection == null || collection.isEmpty())
 	}
 
 	def throwException(String message) {

@@ -8,7 +8,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath  'com.xargsgrep.gradle:jsvcPlugin:1.0-SNAPSHOT'
+        classpath 'com.xargsgrep.gradle:jsvcPlugin:1.0-SNAPSHOT'
     }
 }
 
@@ -17,15 +17,14 @@ repositories {
 }
 
 dependencies {
-	compile "commons-daemon:commons-daemon:1.0.10"
+	compile 'commons-daemon:commons-daemon:1.0.10'
 }
 
 jsvc {
 	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
 	jvmOptions = ['-Xms64m', '-Xmx64m']
 	detach = false
-	classpath = sourceSets.main.runtimeClasspath.getAsPath()
-	outFile = './jsvc.log'
+	outFile = 'jsvc.log'
 	errorFile = '&1'
 	pidFile = 'jsvc.pid'
 	daemonClass = 'com.xargsgrep.BackendDaemon'

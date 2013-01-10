@@ -17,7 +17,7 @@ class JsvcStartTask extends AbstractJsvcTask {
 	def buildCommand() {
 		command.addAll(settings.jvmOptions)
 		command.addAll(settings.systemProperties)
-		addOptionAndValue(CLASSPATH_FLAG, settings.classpath)
+		addOptionAndValue(CLASSPATH_FLAG, settings.classpath.getAsPath())
 		if (!isBlank(settings.javaHome)) addOptionAndValue(JAVAHOME_FLAG, settings.javaHome)
 		if (!settings.detach) command.add(NODETACH_FLAG)
 		if (settings.debug) command.add(DEBUG_FLAG)
