@@ -22,7 +22,7 @@ dependencies {
 
 jsvc {
 	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
-	jvmOptions = ['-Xms64m', '-Xmx64']
+	jvmOptions = ['-Xms64m', '-Xmx64m']
 	detach = false
 	classpath = sourceSets.main.runtimeClasspath.getAsPath()
 	outFile = './jsvc.log'

@@ -8,18 +8,16 @@ import static org.junit.Assert.*
 class JsvcPluginTest {
 
 	@Test
-	public void jsvcPluginAddsJsvcRunTaskToProject() {
+	public void jsvcPluginAddsJsvcStartTaskToProject() {
 		Project project = ProjectBuilder.builder().build()
 		project.apply plugin: 'jsvc'
-
-		assertTrue(project.tasks.jsvcRun instanceof JsvcRunTask)
+		assertTrue(project.tasks.jsvcStart instanceof JsvcStartTask)
 	}
 
 	@Test
 	public void jsvcPluginAddsJsvcStopTaskToProject() {
 		Project project = ProjectBuilder.builder().build()
 		project.apply plugin: 'jsvc'
-
 		assertTrue(project.tasks.jsvcStop instanceof JsvcStopTask)
 	}
 

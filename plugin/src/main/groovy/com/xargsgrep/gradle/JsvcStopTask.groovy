@@ -4,38 +4,19 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.TaskExecutionException
 
-class JsvcStopTask extends DefaultTask {
-	final def STOP_FLAG = '-stop'
-	final def PIDFILE_FLAG = '-pidfile'
+class JsvcStopTask extends AbstractJsvcTask {
 
-	def settings = project.convention.plugins.jsvc
-	def command = []
-	
 	JsvcStopTask() {
 		description = 'Stops jsvc using the configured pidfile'
 	}
 
-	@TaskAction
-	def run() {
-		if (isBlank(settings.pidFile) || settings.pidFile == '/dev/null') {
-			throw new TaskExecutionException(this, new Throwable('jsvc pidfile is undefined'))
-		}
+	def getRequiredProperties() {
+		return ['pidFile']
+	}
 
-		command.add(settings.bin)
+	def buildCommand() {
 		command.add(STOP_FLAG)
 		addOptionAndValue(PIDFILE_FLAG, settings.pidFile)
-		command.add(settings.daemonClass)
-
-		println "jsvc command: " +  command
-		command.execute()
 	}
 
-	def addOptionAndValue(option, value) {
-		command.add(option)
-		command.add(value)
-	}
-
-	def isBlank(String str) {
-		return (str == null || str.length() == 0)
-	}
 }

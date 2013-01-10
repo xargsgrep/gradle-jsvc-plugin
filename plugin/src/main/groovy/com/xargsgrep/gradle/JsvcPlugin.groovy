@@ -9,7 +9,7 @@ class JsvcPlugin implements Plugin<Project> {
 		//def classpath = (javaConvention == null) ? null : javaConvention.sourceSets.main.runtimeClasspath.asPath
 		project.convention.plugins.jsvc = new JsvcPluginConvention()
 
-		project.task('jsvcRun', type: JsvcRunTask)
+		project.task('jsvcStart', type: JsvcStartTask)
 		project.task('jsvcStop', type: JsvcStopTask)
 	}
 }
