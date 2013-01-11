@@ -13,7 +13,7 @@ apply plugin: 'jsvc'
 
 jsvc {
 	// required
-	daemonClass = 'com.xargsgrep.BackendDaemon'
+	daemonClass = 'com.xargsgrep.daemon.TestDaemon'
 
 	// optional if java plugin is applied, otherwise required
 	// this is of type FileCollection

@@ -21,12 +21,12 @@ dependencies {
 }
 
 jsvc {
+	daemonClass = 'com.xargsgrep.daemon.TestDaemon'
 	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
 	jvmOptions = ['-Xms64m', '-Xmx64m']
 	detach = false
 	outFile = 'jsvc.log'
 	errorFile = '&1'
 	pidFile = 'jsvc.pid'
-	daemonClass = 'com.xargsgrep.BackendDaemon'
 	daemonArgs = ['arg1', 'arg2']
 }
