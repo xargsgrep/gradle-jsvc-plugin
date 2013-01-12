@@ -50,7 +50,6 @@ abstract class AbstractJsvcTask extends DefaultTask {
 
         project.exec({
             executable = settings.bin
-//            executable 'echo'
             args arguments
         })
     }
