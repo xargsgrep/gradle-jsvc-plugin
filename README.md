@@ -1,10 +1,10 @@
 gradle-jsvc-plugin
 ==================
 
-Custom Gradle plugin to facilitate running projects which use jsvc
+Custom Gradle plugin to facilitate running projects which use jsvc. Automatically applies the java plugin.
 
 # Tasks
-* jsvcStart Starts jsvc with the configured daemon class
+* jsvcStart Starts jsvc with the configured daemon class (depends on java plugin's classes task)
 * jsvcStop Stops jsvc using the configured pidfile
 
 # Usage
@@ -15,12 +15,9 @@ jsvc {
 	// required
 	daemonClass = 'com.xargsgrep.daemon.TestDaemon'
 
-	// optional if java plugin is applied, otherwise required
-	// this is of type FileCollection
-	classpath = fileTree(buildDir) // defaults to java runtimeClasspath if java plugin is applied
-
 	// optional
 	bin = '/sbin/jsvc' // defaults to /usr/bin/jsvc
+	classpath = fileTree(buildDir) // defaults to java runtimeClasspath
 	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
 	jvmOptions = ['-Xms64m', '-Xmx64m']
 	javaHome = '/usr/lib/jvm' // defaults to jsvc default ($JAVA_HOME)
