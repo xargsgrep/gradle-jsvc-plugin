@@ -13,20 +13,18 @@ buildscript {
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile 'commons-daemon:commons-daemon:1.0.10'
+    compile 'commons-daemon:commons-daemon:1.0.10'
 }
 
 jsvc {
-	daemonClass = 'com.xargsgrep.daemon.TestDaemon'
-	systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
-	jvmOptions = ['-Xms64m', '-Xmx64m']
-	detach = false
-	outFile = 'jsvc.log'
-	errorFile = '&1'
-	pidFile = 'jsvc.pid'
-	daemonArgs = ['arg1', 'arg2']
+    daemonClass = 'com.xargsgrep.daemon.TestDaemon'
+    systemProperties = ['-DtestProperty1=foo', '-DtestProperty2=bar']
+    jvmOptions = ['-Xms64m', '-Xmx64m']
+    detach = false
+    pidFile = 'jsvc.pid'
+    daemonArgs = ['arg1', 'arg2']
 }
