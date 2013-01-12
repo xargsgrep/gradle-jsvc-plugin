@@ -13,7 +13,7 @@ class JsvcPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.plugins.apply(JavaPlugin.class)
         project.extensions.create('jsvc', JsvcPluginExtension)
-        project.task(JSVC_START, type: JsvcStartTask).dependsOn(JavaPlugin.COMPILE_JAVA_TASK_NAME)
+        project.task(JSVC_START, type: JsvcStartTask).dependsOn(JavaPlugin.CLASSES_TASK_NAME)
         project.task(JSVC_STOP, type: JsvcStopTask)
     }
 
