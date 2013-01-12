@@ -32,8 +32,8 @@ abstract class AbstractJsvcTask extends DefaultTask {
 
     @TaskAction
     def run() {
-        def javaConvention = project.convention.plugins.java
-        if (javaConvention != null && settings.classpath == null) {
+        if (settings.classpath == null) {
+            def javaConvention = project.convention.plugins.java
             settings.classpath = javaConvention.sourceSets.main.runtimeClasspath
         }
 

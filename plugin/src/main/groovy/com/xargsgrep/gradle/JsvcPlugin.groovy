@@ -3,13 +3,18 @@ package com.xargsgrep.gradle
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.FileCollection
+import org.gradle.api.plugins.JavaPlugin
 
 class JsvcPlugin implements Plugin<Project> {
 
+    public static final JSVC_START = 'jsvcStart'
+    public static final JSVC_STOP = 'jsvcStop'
+
     void apply(Project project) {
+        project.plugins.apply(JavaPlugin.class)
         project.extensions.create('jsvc', JsvcPluginExtension)
-        project.task('jsvcStart', type: JsvcStartTask)
-        project.task('jsvcStop', type: JsvcStopTask)
+        project.task(JSVC_START, type: JsvcStartTask).dependsOn(JavaPlugin.COMPILE_JAVA_TASK_NAME)
+        project.task(JSVC_STOP, type: JsvcStopTask)
     }
 
 }
