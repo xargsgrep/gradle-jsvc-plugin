@@ -15,6 +15,7 @@ abstract class AbstractJsvcTask extends DefaultTask {
     final def OUTFILE_FLAG = '-outfile'
     final def ERRFILE_FLAG = '-errfile'
     final def PIDFILE_FLAG = '-pidfile'
+    final def JVM_FLAG = '-jvm'
     final def PROCNAME_FLAG = '-procname'
     final def WAIT_FLAG = '-wait'
     final def STOP_FLAG = '-stop'
