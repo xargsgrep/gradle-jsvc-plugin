@@ -28,6 +28,7 @@ jsvc {
 	errorFile = '&1' // defaults to jsvc default (/dev/null)
 	pidFile = 'jsvc.pid' // defaults to jsvc default (/var/run/jsvc.pid)
 	daemonArgs = ['arg1', 'arg2']
+	jvm = ['client' 'jvm' 'hotspot' 'server']
 	processName = 'Jsvc Process'
 	user = 'username' // default to jsvc default (current user)
 	waitTime = 20 // must be multiple of 10, per jsvc

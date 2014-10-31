@@ -30,6 +30,7 @@ class JsvcPluginExtension {
     String errorFile = '&1'
     String pidFile
     String javaHome
+    String jvm
     String processName
     String user
     String workingDir
