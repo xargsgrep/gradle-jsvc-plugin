@@ -21,7 +21,7 @@ class JsvcStartTask extends AbstractJsvcTask {
         if (!isBlank(settings.outFile)) arguments.addAll(OUTFILE_FLAG, settings.outFile)
         if (!isBlank(settings.errorFile)) arguments.addAll(ERRFILE_FLAG, settings.errorFile)
         if (!isBlank(settings.pidFile)) arguments.addAll(PIDFILE_FLAG, settings.pidFile)
-        if (!isBlank(settings.jvm)) arguments.addAll(JVM_FLAG, setting.jvm)
+        if (!isBlank(settings.jvm)) arguments.addAll(JVM_FLAG, settings.jvm)
         if (!isBlank(settings.processName)) arguments.addAll(PROCNAME_FLAG, settings.processName)
         if (settings.waitTime > 0) arguments.addAll(WAIT_FLAG, settings.waitTime)
         if (settings.keepStdin) arguments.add(KEEPSTDIN_FLAG)
